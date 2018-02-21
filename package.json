@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/sashalex64/udm_workflow_3#readme",
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0"
   }
 }
