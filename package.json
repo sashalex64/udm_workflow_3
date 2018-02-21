@@ -1,0 +1,25 @@
+{
+  "name": "udm_workflow_3",
+  "version": "1.0.0",
+  "description": "Web Workflow eith Sass, Gulp, NPM and Git",
+  "main": "\u001b",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sashalex64/udm_workflow_3.git"
+  },
+  "keywords": [
+    "Sass",
+    "Gulp",
+    "Git",
+    "NPM"
+  ],
+  "author": "Sash Alex",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sashalex64/udm_workflow_3/issues"
+  },
+  "homepage": "https://github.com/sashalex64/udm_workflow_3#readme"
+}
