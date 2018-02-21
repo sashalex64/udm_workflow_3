@@ -1,8 +1,8 @@
 {
   "name": "udm_workflow_3",
   "version": "1.0.0",
-  "description": "Web Workflow eith Sass, Gulp, NPM and Git",
-  "main": "\u001b",
+  "description": "Workflow with Node, NPM, Gulp and Sass",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
