@@ -1,3 +1,9 @@
+$bg-yellow   : darken(yellow, 20%);
+
+
 body {
- background: black;
+ background: $bg-yellow;
+}
+h1 {
+	color: white;
 }
