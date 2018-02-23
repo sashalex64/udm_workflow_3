@@ -5,9 +5,6 @@ var reload = browserSync.reload;
 var autoprefixer = require('gulp-autoprefixer');
 var clean = require('gulp-clean');
 var concat = require('gulp-concat');
-var browserify = require('gulp-browserify');
-var merge = require('merge-stream');
-var uglify = require('gulp-uglify');
 
 //====   PATHS
 
@@ -20,7 +17,6 @@ var SOURCEPATHS = {
 var APPPATH = {
 	root: 'app/',
 	css: 'app/css',
-	fonts: 'app/fonts',
 	js: 'app/js'
 }
 
@@ -56,37 +52,19 @@ gulp.task('clean-scripts', function() {
 gulp.task('scripts',['clean-scripts'], function(){
 	gulp.src(SOURCEPATHS.jsSource)
 		.pipe(concat('main.js'))
-		.pipe(browserify())
-		.pipe(uglify())
 		.pipe(gulp.dest(APPPATH.js))
 });
 
 
 // == end of JS tasks
-// MOVE FONTS task
-gulp.task('moveFonts', function() {
-	gulp.src('./node_modules/bootstrap/dist/fonts/**')
-		.pipe(gulp.dest(APPPATH.fonts))
-});
-
-// == SASS + CSS task
 gulp.task('sass', function() {
-	//***
-	var bootstrapCSS = gulp.src('./node_modules/bootstrap/dist/css/bootstrap.css');
-	var sassFiles;
-	//***
-	sassFiles = gulp.src(SOURCEPATHS.sassSource)
-	//**
-	  	.pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
-	//****
-	 return merge(sassFiles, bootstrapCSS)
-	 	.pipe(concat('app.css'))
-	//***
-	  	.pipe(autoprefixer())
+	return gulp.src(SOURCEPATHS.sassSource)
+	  // .pipe(autoprefixer())
+	  .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
+	  .pipe(autoprefixer())
 	  // best practice to add autoprefixer pipe immediately after sass in order not to throw error in case of using js comments in sass files
 	  .pipe(gulp.dest(APPPATH.css))
 });
-
 gulp.task('serve', ['sass'], function(){
 	browserSync.init(
 		[APPPATH.css + '/*.css', 
